@@ -1,0 +1,6 @@
+framework module city_pickers {
+  umbrella header "city_pickers-umbrella.h"
+
+  export *
+  module * { export * }
+}
