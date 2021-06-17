@@ -19,6 +19,9 @@
   "dependencies": {
     "Flutter": [
 
+    ],
+    "OrderedSet": [
+      "~>5.0"
     ]
   },
   "pod_target_xcconfig": {
@@ -26,11 +29,20 @@
     "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
   },
   "swift_versions": "5.0",
+  "default_subspecs": "Core",
   "platforms": {
     "osx": null,
     "ios": null,
     "tvos": null,
     "watchos": null
   },
+  "subspecs": [
+    {
+      "name": "Core",
+      "platforms": {
+        "ios": "8.0"
+      }
+    }
+  ],
   "swift_version": "5.0"
 }
