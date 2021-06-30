@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+# 顶部添加路径
+flutter_application_path = "./flutter_module/"
+load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
+target 'FlutterMixDemo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for FlutterMixDemo
+  # 每个某块添加 module
+  install_all_flutter_pods(flutter_application_path)
+end
+
+#添加命令
+#flutter_application_path = './flutter_module'
+#eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+
+
+
