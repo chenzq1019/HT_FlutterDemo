@@ -3,6 +3,7 @@ import 'package:flutter_module/SecondPage.dart';
 import 'package:flutter_module/AddressList.dart';
 import 'package:flutter_module/AddressEdit.dart';
 import 'package:flutter_module/AddressSelect.dart';
+import 'package:flutter_module/RealNamePage.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -33,7 +34,9 @@ class MyApp extends StatelessWidget {
 final routes =  {"/secondPage": (context)=> SecondPage(),
   "/thirdPage":(context) => ThirdPage(),
   "/AddressEdit":(context,{arguments}) => AddressEditPage(arguments:arguments),
-  "/AddressSelect":(context) =>AddressSelectPage()};
+  "/AddressSelect":(context) =>AddressSelectPage(),
+  "/RealName":(context,{arguments}) => RealNamePage(arguments: arguments,),
+};
 
 //固定写法
 var onGenerateRoute = (RouteSettings settings) {

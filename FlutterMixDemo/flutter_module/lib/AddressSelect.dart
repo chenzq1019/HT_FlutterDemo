@@ -177,12 +177,14 @@ class _AddressSelectPageState extends State<AddressSelectPage> with TickerProvid
               height: 40,
               alignment: Alignment.centerLeft,
               child: TabBar(
-                indicatorColor: Colors.black,
+                indicatorColor: Colors.red,
                 isScrollable: true,
+                unselectedLabelColor:Colors.black54,
+                labelColor: Colors.red,
                 indicatorSize: TabBarIndicatorSize.label,
                 controller: _tabController,
                   tabs: tabsdata.map((item) {
-                    return Text("${item}",style: TextStyle(color: Colors.black54),);
+                    return Text("${item}");
                   }).toList(),
               onTap: (index){
                   print("点击了第${index}个Tab");

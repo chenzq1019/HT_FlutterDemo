@@ -20,16 +20,22 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
   String phoneNUm;
   String postCode;
   String userAddress;
-
+  TextEditingController nameController;
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
 
   _showAddressSheetView(){
-    showModalBottomSheet(clipBehavior: Clip.antiAlias, shape: RoundedRectangleBorder(
+    showModalBottomSheet(clipBehavior: Clip.antiAlias, isScrollControlled: true,shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.only(
     topLeft: Radius.circular(20),
     topRight: Radius.circular(20),
+
     ),),context: context, builder: (BuildContext context){
-      return AddressSelectPage(eventCallBack: this,defaultAreaMap: this.areaMap,);
+//      return AddressSelectPage(eventCallBack: this,defaultAreaMap: this.areaMap,);
+      final height = MediaQuery.of(context).size.height *0.8;
+        return SizedBox(height: height, child:AddressSelectPage(eventCallBack: this,defaultAreaMap: this.areaMap,));
     });
+
   }
 
   void onEventAreaDialogCallBack(Map<int, AddressCityItem> selectMap){
@@ -59,7 +65,7 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
       this.areaAddress= this.addressInfo.provinceName+this.addressInfo.cityName+this.addressInfo.areaName+this.addressInfo.townName;
       this.name =this.addressInfo.name;
       this.phoneNUm = this.addressInfo.phoneNum;
-      this.userAddress = this.userAddress;
+      this.userAddress = this.addressInfo.userAddress;
       if(this.addressInfo.provinceCode.length>0){
         AddressCityItem province =AddressCityItem(rank: "1",code: this.addressInfo.provinceCode,name: this.addressInfo.provinceName);
         this.areaMap[0]=province;
@@ -78,6 +84,9 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
       }
     }
 
+    this.nameController = TextEditingController.fromValue(TextEditingValue(text: this.name.length>0?this.name:""));
+    this.phoneController.text= this.phoneNUm.length>0?this.phoneNUm:"";
+    this.addressController.text = this.userAddress.length>0?this.userAddress:"";
   }
 
 
@@ -88,7 +97,6 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
         _showAddressSheetView();
       },
       child: Container(
-//        padding: EdgeInsets.all(8),
         height: 60,
         decoration: BoxDecoration(
             border: Border(
@@ -96,12 +104,14 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
             )
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(padding: EdgeInsets.only(left: 8),child: Text("${title}"),width: 82,),
-            Expanded(child: Text("${text}",style: TextStyle(fontSize: 15,color: Colors.black54),)),
+            Container(alignment: Alignment.centerLeft, padding: EdgeInsets.only(left: 8),child: Text("${title}",style: TextStyle(fontSize: 15),),width: 75,),
+            Expanded(child: Container(padding: EdgeInsets.only(left: 10), child: Text("${text}",style: TextStyle(color: Colors.black54),))),
             Padding(
               padding: const EdgeInsets.only(right: 10),
-              child: Icon(Icons.arrow_forward_ios_sharp,size: 20,color: Colors.black54,),
+              child: Icon(Icons.arrow_forward_ios_sharp,size: 18,color: Colors.black54,),
             ),
           ],
         ),
@@ -116,17 +126,17 @@ class _AddressEditPageState extends State<AddressEditPage> with EvnetAreaDialogC
 
         child: ListView(
           children: [
-                  AddressInputFiled(title: "收货人",text: "${this.name}",onChanged: (value){
+                  AddressInputFiled(title: "收货人",text: "${this.name}",controller: this.nameController,onChanged: (value){
                        print(value);
                   },),
-                  AddressInputFiled(title: "手机号码",text: "${this.phoneNUm}",onChanged: (value){
+                  AddressInputFiled(title: "手机号码",text: "${this.phoneNUm}",controller: this.phoneController,onChanged: (value){
                       print(value);
                   },),
                   AddressSelectCell("所在地区", "${this.areaAddress}"),
-                  AddressInputFiled(title: "邮政编码",text: "邮政编码",onChanged: (value){
+                  AddressInputFiled(title: "邮政编码",text: "邮政编码",readOnly: true,onChanged: (value){
                       print(value);
                   },),
-                  AddressInputFiled(title: "详细地址",text: "${this.userAddress}",onChanged: (value){
+                  AddressInputFiled(title: "详细地址",text: "${this.userAddress}",controller: this.addressController,onChanged: (value){
                       print(value);
                   },),
             Padding(padding: EdgeInsets.only(top: 20)),

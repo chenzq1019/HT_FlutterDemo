@@ -20,20 +20,22 @@ class AddressInputFiled extends StatelessWidget {
         )
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(padding: EdgeInsets.only(left: 8),width: 70,child: Text("${this.title}",style: TextStyle(fontSize: 15),)),
+          Container(alignment:Alignment.centerLeft,padding: EdgeInsets.only(left: 8),width: 75,child: Text("${this.title}",style: TextStyle(fontSize: 15),)),
           Expanded(
             child: TextField(
+//              scrollPadding: EdgeInsets.only(left: 20),
               readOnly: this.readOnly,
               style: TextStyle(fontSize: 15),
               controller: this.controller,
               maxLines: this.maxline,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(left: 10),
                 hintStyle: TextStyle(fontSize: 15),
                 hintText: this.text,
-                  border: OutlineInputBorder(
-//                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none)
+                  border: InputBorder.none
               ),
               onChanged: this.onChanged,
             ),

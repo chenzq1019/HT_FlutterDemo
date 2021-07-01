@@ -1,6 +1,8 @@
 
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 class AddressListInfo{
   List<AddressListModel> addressList;
   AddressListInfo({this.addressList});
@@ -30,6 +32,7 @@ class AddressListModel{
   String townName;
   String townCode;
   String userAddress;
+  AddressIdentity identityInfo;
 
   AddressListModel({
     this.name,this.phoneNum,this.address,this.isMyPrimaryAddress=false,this.provinceName,this.provinceCode,
@@ -50,6 +53,7 @@ class AddressListModel{
     townName = json["townNameNew"];
     townCode = json["townCodeNew"];
     userAddress = json["usrAddress"];
+    identityInfo = AddressIdentity.fromJson(json["identityInfo"]);
 
   }
 }
@@ -87,4 +91,24 @@ class AddressCityItem{
     postCode = json["postCode"];
     isSelected = json["isSelected"] == "1"? true:false;
   }
+}
+
+class AddressIdentity{
+  String identityId;
+  String usrNum;
+  String idType;
+  String usrName;
+  String afterPicurl;
+  String frontPicurl;
+  AddressIdentity({Key key,this.identityId,this.usrName,this.usrNum,this.idType,this.afterPicurl,this.frontPicurl});
+
+  AddressIdentity.fromJson(Map<String, dynamic> json) {
+    identityId = json["identityId"];
+    usrNum = json["usrNum"];
+    idType = json["idType"];
+    usrName = json["usrName"];
+    afterPicurl = json["afterPicurl"];
+    frontPicurl = json["frontPicurl"];
+  }
+
 }

@@ -30,6 +30,7 @@ dependencies:
   dio: ^4.0.0
   json_annotation: ^4.0.1
   flutter_screenutil: ^1.1.0
+  image_picker: ^0.8.1
 
 dev_dependencies:
   flutter_test:
@@ -45,7 +46,9 @@ flutter:
   uses-material-design: true
   # To add Flutter specific assets to your application, add an assets section,
   # like this:
-  # assets:
+  assets:
+     - images/addIDPic@2x.png
+     - images/addIDPic@3x.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
