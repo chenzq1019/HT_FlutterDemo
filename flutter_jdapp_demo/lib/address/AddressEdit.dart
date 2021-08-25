@@ -12,7 +12,7 @@ import 'package:flutterjdappdemo/widget/JDText.dart';
 class AddressEditPage extends StatefulWidget {
   Map arguments;
   AddressEditPage({Key key,this.arguments}) : super(key: key);
-
+  @override
   _AddressEditPageState createState() => _AddressEditPageState();
 }
 
