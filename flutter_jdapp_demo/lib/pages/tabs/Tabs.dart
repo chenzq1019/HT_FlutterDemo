@@ -76,19 +76,23 @@ class _TabsState extends State<Tabs> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("首页")
+//            title: Text("首页")
+            label: "首页"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.category),
-              title: Text("分类")
+              label: "分类"
+//              title: Text("分类")
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart),
-              title: Text("购物车")
+              label: "购物车",
+//              title: Text("购物车")
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.people),
-              title: Text("我的")
+              label: "我的",
+//              title: Text("我的")
           )
         ],
       ),

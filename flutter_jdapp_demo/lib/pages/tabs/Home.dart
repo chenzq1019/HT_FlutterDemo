@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
   List _focusData = [];
   _getFocusData() async {
     var apiURL = "${Config.domain}api/focus";
+    print(apiURL);
     var result = await Dio().get(apiURL);
     print(result.data is Map);// String 还需要转化为Map
     var focusList = FocusModel.fromJson(result.data);
@@ -97,9 +98,12 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
   List _hotProductListData = [];
   _getHotProductData() async {
     var apiURL = "${Config.domain}api/plist?is_hot=1";
+    print(apiURL);
     var result = await Dio().get(apiURL);
+    print("=======${result}");
     var hotProductList = ProductListModel.fromJson(result.data);
     setState(() {
+      print(hotProductList);
       this._hotProductListData = hotProductList.result;
     });
   }
@@ -179,10 +183,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
         spacing: 10,// 水平间距(中间的10）
         runSpacing: 10,// 纵间距（上下的10）
         children: this._bestProductListData.map((value){// value为每一个Item
-
           String sPic = value.sPic;
           sPic = Config.domain + sPic.replaceAll('\\', '/');
-
           return InkWell(
             child: Container(// Item 宽高
               // 屏幕减去左右中间后的一半, 高度会自适应
