@@ -9,12 +9,6 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/build" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/example/.dart_tool" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/example/.pub" />
-      <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/city_pickers/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_inappwebview/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_inappwebview/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/.symlinks/plugins/flutter_inappwebview/build" />
